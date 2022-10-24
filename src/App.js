@@ -1,9 +1,12 @@
 import React from "react";
 import "./App.css";
+import ErrorPage from "./Components/ErrorPage";
+import Footer from "./Components/Footer";
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <ErrorPage />
+      <Footer />
     </div>
   );
 }
