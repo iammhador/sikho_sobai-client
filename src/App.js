@@ -1,12 +1,11 @@
 import React from "react";
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import ErrorPage from "./Components/ErrorPage";
-import Footer from "./Components/Footer";
+import { router } from "./Routes/Routes";
 function App() {
   return (
     <div>
-      <ErrorPage />
-      <Footer />
+      <RouterProvider router={router} />
     </div>
   );
 }

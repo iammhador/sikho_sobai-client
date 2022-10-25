@@ -1,32 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div>
-      <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-12">
+      <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-12 bg-rose-700">
         <div className="flex flex-col items-center justify-center">
           <div>
-            <h2 className="text-3xl font-bold">Sikho Sobai</h2>
+            <h2 className="text-3xl font-bold text-gray-100">Sikho Sobai</h2>
           </div>
           <div className="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">
-            <p className="hover:text-gray-500 text-base cursor-pointer leading-4 text-gray-800">
+            <p className="hover:text-gray-900 text-base cursor-pointer leading-4 text-gray-100">
               About
             </p>
-            <p className="hover:text-gray-500 text-base cursor-pointer leading-4 text-gray-800">
+            <p className="hover:text-gray-900 text-base cursor-pointer leading-4 text-gray-100">
               Contact us
             </p>
-            <p className="hover:text-gray-500 text-base cursor-pointer leading-4 text-gray-800">
+            <p className="hover:text-gray-900 text-base cursor-pointer leading-4 text-gray-100">
               Terms of Service
             </p>
-            <p className="hover:text-gray-500 text-base cursor-pointer leading-4 text-gray-800">
+            <p className="hover:text-gray-900  text-base cursor-pointer leading-4 text-gray-100">
               Privacy Policy
             </p>
           </div>
           <div className="flex items-center gap-x-8 mt-6">
             <div className="cursor-pointer">
               <svg
-                className="fill-current text-gray-800 hover:text-gray-500"
+                className="fill-current text-gray-100 hover:text-gray-900"
                 width="22"
                 height="22"
                 viewBox="0 0 22 22"
@@ -43,7 +42,7 @@ const Footer = () => {
             </div>
             <div className="cursor-pointer">
               <svg
-                className="fill-current text-gray-800 hover:text-gray-500"
+                className="fill-current text-gray-100 hover:text-gray-900"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -66,7 +65,7 @@ const Footer = () => {
             </div>
             <div className="cursor-pointer">
               <svg
-                className="fill-current text-gray-800 hover:text-gray-500"
+                className="fill-current text-gray-100 hover:text-gray-900"
                 width="24"
                 height="25"
                 viewBox="0 0 24 25"
@@ -81,12 +80,12 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex items-center mt-6">
-            <p className="text-base leading-4 text-gray-800">
-              2022 <span className="font-semibold">Sikho</span>
+            <p className="text-base leading-4 text-gray-100">
+              2022 <span className="font-semibold">Sikho Sobai</span>
             </p>
-            <div className="border-l border-gray-800 pl-2 ml-2">
-              <p className="text-base leading-4 text-gray-800">
-                Inc. All righys reserved by{" "}
+            <div className="border-l border-gray-100 pl-2 ml-2">
+              <p className="text-base leading-4 text-gray-100">
+                Inc. All right reserved by{" "}
                 <a href="https://www.facebook.com/iammhador">
                   Mehedy Hasan Ador
                 </a>
