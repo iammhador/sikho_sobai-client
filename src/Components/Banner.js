@@ -19,7 +19,7 @@ const Banner = () => {
               </span>
             </h2>
             <p className="text-base text-gray-700 md:text-lg">
-              Sikho Sobai is online base education platform. We connect our
+              Sikho Sobai is online base education platform. We connected to our
               student and teach them best skills on the fields. Sikho Sobai is
               not a institute, It's a home of our students.
             </p>
