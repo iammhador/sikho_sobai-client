@@ -7,7 +7,8 @@ import logo from "../../Assets/logo.png";
 const SignIn = () => {
   const [showpass, setShowPass] = useState(false);
   const [error, setError] = useState(null);
-  const { googleLogin, githubLogin, loginWithEmailAndPassword } =
+  const [userEmail, setUserEmail] = useState("");
+  const { googleLogin, githubLogin, loginWithEmailAndPassword, passwordReset } =
     useContext(AuthContext);
 
   //# Google Login :
@@ -47,6 +48,19 @@ const SignIn = () => {
       })
       .catch((error) => {
         setError(error);
+      });
+  };
+
+  //# Send Password Reset Email :
+  const handleForgetPass = (e) => {
+    e.preventDefault();
+    console.log(userEmail);
+    passwordReset(userEmail)
+      .then(() => {
+        toast.success("Forget password link has been sended");
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -147,6 +161,7 @@ const SignIn = () => {
                   Email
                 </lable>
                 <input
+                  onBlur={(e) => setUserEmail(e.target.value)}
                   aria-label="enter email adress"
                   role="input"
                   type="email"
@@ -168,7 +183,6 @@ const SignIn = () => {
                     name="password"
                     type={showpass ? "text" : "password"}
                     className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                    required
                   />
                   <div
                     onClick={() => setShowPass(!showpass)}
@@ -215,7 +229,7 @@ const SignIn = () => {
                   <small>{error}</small>
                 </div>
                 <div>
-                  <button>
+                  <button onClick={handleForgetPass}>
                     <small>Forget password</small>
                   </button>
                 </div>

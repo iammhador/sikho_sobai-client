@@ -1,8 +1,23 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../Assets/logo.png";
+import Context, { AuthContext } from "../Context.js/Context";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { currentUser, signOut } = Context(AuthContext);
+  // const fullName = currentUser.user.displayName;
+  console.log(currentUser);
+
+  //# Sign Out :
+  const handleSignOut = () => {
+    signOut()
+      .then(() => {
+        toast.success("You have been sing out");
+      })
+      .catch(() => {});
+  };
+
   return (
     <div>
       <div className="bg-rose-700">
@@ -52,6 +67,30 @@ const Navbar = () => {
                   Blog
                 </NavLink>
               </li>
+              <div className="mx-auto flex flex-col items-start">
+                <div className="cursor-pointer my-5 rounded-full bg-gray-200 relative shadow-sm">
+                  <input
+                    type="checkbox"
+                    name="toggle"
+                    id="toggle1"
+                    className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                  />
+                  <label
+                    htmlFor="toggle1"
+                    className="toggle-label dark:bg-gray-700 block w-12 h-4 overflow-hidden rounded-full bg-gray-300 cursor-pointer"
+                  />
+                </div>
+                <style>
+                  {`.checkbox:checked {
+                        /* Apply class right-0*/
+                        right: 0;
+                    }
+                    .checkbox:checked + .toggle-label {
+                        /* Apply class bg-indigo-700 */
+                        background-color: #4c51bf;
+                    }`}
+                </style>
+              </div>
               <li>
                 <NavLink
                   to="/signin"
@@ -68,7 +107,11 @@ const Navbar = () => {
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" />
+                    <img
+                      src="https://placeimg.com/80/80/people"
+                      alt="profile"
+                      // title={fullName}
+                    />
                   </div>
                 </label>
                 <ul
@@ -82,7 +125,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="logout">Logout</Link>
+                    <button onClick={handleSignOut}>Sign Out</button>
                   </li>
                 </ul>
               </div>
@@ -175,7 +218,30 @@ const Navbar = () => {
                             Blog
                           </NavLink>
                         </li>
-
+                        <div className="mx-auto flex flex-col items-start">
+                          <div className="cursor-pointer my-5 rounded-full bg-gray-200 relative shadow-sm">
+                            <input
+                              type="checkbox"
+                              name="toggle"
+                              id="toggle1"
+                              className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                            />
+                            <label
+                              htmlFor="toggle1"
+                              className="toggle-label dark:bg-gray-700 block w-12 h-4 overflow-hidden rounded-full bg-gray-300 cursor-pointer"
+                            />
+                          </div>
+                          <style>
+                            {`.checkbox:checked {
+                        /* Apply class right-0*/
+                        right: 0;
+                    }
+                    .checkbox:checked + .toggle-label {
+                        /* Apply class bg-indigo-700 */
+                        background-color: #4c51bf;
+                    }`}
+                          </style>
+                        </div>
                         <div className="dropdown dropdown-right">
                           <label
                             tabIndex={0}
@@ -200,6 +266,7 @@ const Navbar = () => {
                             </li>
                           </ul>
                         </div>
+
                         <li>
                           <NavLink
                             to="/signin"

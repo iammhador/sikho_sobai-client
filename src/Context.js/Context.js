@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
   updateProfile,
   sendEmailVerification,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.init";
 import { createContext } from "react";
@@ -22,6 +23,7 @@ export const AuthContext = createContext();
 
 const Context = ({ children }) => {
   const [error, setError] = useState();
+  const [currentUser, setCurrentUser] = useState(null);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -45,15 +47,6 @@ const Context = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  //# Authentication State Observer :
-  useEffect(() => {
-    const unSub = onAuthStateChanged(auth, (user) => {
-      const userId = user.uid;
-      console.log(userId);
-    });
-    return () => unSub();
-  }, []);
-
   //# Update User Profile :
   const updateDisplayNameAndPhotUrl = (fullName, photoURL) => {
     return updateProfile(auth.currentUser, {
@@ -67,8 +60,27 @@ const Context = ({ children }) => {
     return sendEmailVerification(auth.currentUser);
   };
 
+  //# Send Password Reset Email :
+  const passwordReset = (userEmail) => {
+    return sendPasswordResetEmail(auth, userEmail);
+  };
+
+  //# Sign Out :
+  const signOut = () => {
+    return signOut(auth);
+  };
+
+  //# Authentication State Observer :
+  useEffect(() => {
+    const unSub = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => unSub();
+  }, []);
+
   //# Auth Information :
   const authInfo = {
+    currentUser,
     error,
     googleLogin,
     githubLogin,
@@ -76,6 +88,8 @@ const Context = ({ children }) => {
     registerWithEmailAndPassword,
     updateDisplayNameAndPhotUrl,
     verifyEmail,
+    passwordReset,
+    signOut,
   };
 
   return (
