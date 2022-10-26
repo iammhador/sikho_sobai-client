@@ -16,7 +16,7 @@ You have to create a website to provide a quality learning platform in the domai
 
 3. It will contain a navbar with the options: website logo, website name, Courses, FAQ, Blog, toggle theme (dark/ light), and User Profile Picture (or login). The user profile picture on the navbar is conditional. If the user is signed in, the navbar will show the profile pic. The user's name will be visible when the mouse is in the picture.
 
-<!--# Not Done Yet -->
+<!-- Done -->
 
 4. After clicking "Log in," it will redirect to a login page. 3 types of login systems you have to implement: Email & password login, Google, and GitHub login. The login page will have a toggle option to go to the register page.
 

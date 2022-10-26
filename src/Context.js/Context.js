@@ -10,10 +10,10 @@ import {
   updateProfile,
   sendEmailVerification,
   sendPasswordResetEmail,
+  signOut,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.init";
 import { createContext } from "react";
-import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -22,28 +22,32 @@ const auth = getAuth(app);
 export const AuthContext = createContext();
 
 const Context = ({ children }) => {
-  const [error, setError] = useState();
-  const [currentUser, setCurrentUser] = useState(null);
+  const [loader, setLoader] = useState(true);
+  const [user, setUser] = useState(null);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
   //#  Google Login :
   const googleLogin = () => {
+    setLoader(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   //#  Github Login :
   const githubLogin = () => {
+    setLoader(true);
     return signInWithPopup(auth, githubProvider);
   };
 
   //# Login With Email & Password :
   const loginWithEmailAndPassword = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //# Register New User With Email & Password :
   const registerWithEmailAndPassword = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -62,26 +66,29 @@ const Context = ({ children }) => {
 
   //# Send Password Reset Email :
   const passwordReset = (userEmail) => {
+    setLoader(true);
     return sendPasswordResetEmail(auth, userEmail);
   };
 
   //# Sign Out :
-  const signOut = () => {
+  const userSignOut = () => {
+    setLoader(true);
     return signOut(auth);
   };
 
   //# Authentication State Observer :
   useEffect(() => {
-    const unSub = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+    const unSub = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoader(false);
     });
     return () => unSub();
   }, []);
 
   //# Auth Information :
   const authInfo = {
-    currentUser,
-    error,
+    user,
+    loader,
     googleLogin,
     githubLogin,
     loginWithEmailAndPassword,
@@ -89,7 +96,7 @@ const Context = ({ children }) => {
     updateDisplayNameAndPhotUrl,
     verifyEmail,
     passwordReset,
-    signOut,
+    userSignOut,
   };
 
   return (

@@ -12,6 +12,7 @@ const SignUp = () => {
     registerWithEmailAndPassword,
     updateDisplayNameAndPhotUrl,
     verifyEmail,
+    loader,
   } = useContext(AuthContext);
 
   //# Google Login :

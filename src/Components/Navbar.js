@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../Assets/logo.png";
-import Context, { AuthContext } from "../Context.js/Context";
+import { AuthContext } from "../Context.js/Context";
+import userAvater from "../Assets/batman.png";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { currentUser, signOut } = Context(AuthContext);
-  // const fullName = currentUser.user.displayName;
-  console.log(currentUser);
+  const { user, userSignOut } = useContext(AuthContext);
 
   //# Sign Out :
   const handleSignOut = () => {
-    signOut()
+    userSignOut()
       .then(() => {
         toast.success("You have been sing out");
       })
@@ -91,44 +92,49 @@ const Navbar = () => {
                     }`}
                 </style>
               </div>
-              <li>
-                <NavLink
-                  to="/signin"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none"
-                      : "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none"
-                  }
-                >
-                  Sign in
-                </NavLink>
-              </li>
-
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img
-                      src="https://placeimg.com/80/80/people"
-                      alt="profile"
-                      // title={fullName}
-                    />
-                  </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <Link to="/profile" className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <button onClick={handleSignOut}>Sign Out</button>
-                  </li>
-                </ul>
-              </div>
+              {user && user.uid ? (
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        src={user?.photoURL ? user.photoURL : userAvater}
+                        alt="User Profile"
+                        title={user.displayName}
+                      />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link to="/profile" className="justify-between">
+                        Profile
+                        <span className="badge">New</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <button onClick={handleSignOut}>Sign Out</button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <li>
+                  <NavLink
+                    to="/signin"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none"
+                        : "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none"
+                    }
+                  >
+                    Sign in
+                  </NavLink>
+                </li>
+              )}
             </ul>
             <div className="lg:hidden">
               <button
@@ -242,43 +248,53 @@ const Navbar = () => {
                     }`}
                           </style>
                         </div>
-                        <div className="dropdown dropdown-right">
-                          <label
-                            tabIndex={0}
-                            className="btn btn-ghost btn-circle avatar"
-                          >
-                            <div className="w-10 rounded-full">
-                              <img src="https://placeimg.com/80/80/people" />
-                            </div>
-                          </label>
-                          <ul
-                            tabIndex={0}
-                            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-                          >
-                            <li>
-                              <Link to="profile" className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                              </Link>
-                            </li>
-                            <li>
-                              <p>Logout</p>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <li>
-                          <NavLink
-                            to="/signin"
-                            className={({ isActive }) =>
-                              isActive
-                                ? "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-rose-700 transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none "
-                                : "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none"
-                            }
-                          >
-                            Sign in
-                          </NavLink>
-                        </li>
+                        {user && user?.uid ? (
+                          <div className="dropdown dropdown-right">
+                            <label
+                              tabIndex={0}
+                              className="btn btn-ghost btn-circle avatar"
+                            >
+                              <div className="w-10 rounded-full">
+                                <img
+                                  src={
+                                    user?.photoURL ? user.photoURL : userAvater
+                                  }
+                                  alt="User Profile"
+                                  title={user.displayName}
+                                />
+                              </div>
+                            </label>
+                            <ul
+                              tabIndex={0}
+                              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                            >
+                              <li>
+                                <Link to="profile" className="justify-between">
+                                  Profile
+                                  <span className="badge">New</span>
+                                </Link>
+                              </li>
+                              <li>
+                                <button onClick={handleSignOut}>
+                                  Sign Out
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        ) : (
+                          <li>
+                            <NavLink
+                              to="/signin"
+                              className={({ isActive }) =>
+                                isActive
+                                  ? "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-rose-700 transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none "
+                                  : "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-deep-blue-accent-400 hover:bg-deep-sky-accent-700 focus:shadow-outline focus:outline-none"
+                              }
+                            >
+                              Sign in
+                            </NavLink>
+                          </li>
+                        )}
                       </ul>
                     </nav>
                   </div>

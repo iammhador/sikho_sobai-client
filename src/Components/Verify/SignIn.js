@@ -6,10 +6,15 @@ import { AuthContext } from "../../Context.js/Context";
 import logo from "../../Assets/logo.png";
 const SignIn = () => {
   const [showpass, setShowPass] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const { googleLogin, githubLogin, loginWithEmailAndPassword, passwordReset } =
-    useContext(AuthContext);
+  const {
+    googleLogin,
+    githubLogin,
+    loginWithEmailAndPassword,
+    passwordReset,
+    loader,
+  } = useContext(AuthContext);
 
   //# Google Login :
   const handleGoogleLogin = () => {
@@ -48,6 +53,8 @@ const SignIn = () => {
       })
       .catch((error) => {
         setError(error);
+        console.log(error);
+        toast.error("Error" + error);
       });
   };
 
@@ -166,6 +173,7 @@ const SignIn = () => {
                   role="input"
                   type="email"
                   name="email"
+                  required
                   className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 />
               </div>
@@ -182,6 +190,7 @@ const SignIn = () => {
                     id="myInput"
                     name="password"
                     type={showpass ? "text" : "password"}
+                    required
                     className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                   />
                   <div
@@ -226,7 +235,7 @@ const SignIn = () => {
               </div>
               <div className="flex justify-between">
                 <div>
-                  <small>{error}</small>
+                  <p>{error}</p>
                 </div>
                 <div>
                   <button onClick={handleForgetPass}>
@@ -235,11 +244,7 @@ const SignIn = () => {
                 </div>
               </div>
               <div className="mt-8">
-                <button
-                  role="button"
-                  aria-label="create my account"
-                  className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-rose-700 border rounded hover:bg-indigo-600 py-4 w-full"
-                >
+                <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-rose-700 border rounded hover:bg-indigo-600 py-4 w-full">
                   Sign In
                 </button>
               </div>
