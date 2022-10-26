@@ -8,6 +8,9 @@ import ErrorPage from "../Components/ErrorPage";
 import SignIn from "../Components/Verify/SignIn";
 import SignUp from "../Components/Verify/SignUp";
 import Home from "../Components/Home";
+import Profile from "../Components/Profile";
+import CourseDetails from "../Components/CourseDetails";
+import Purchase from "../Components/Purchase";
 
 export const router = createBrowserRouter([
   {
@@ -25,12 +28,27 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
-        // loader: async () => {
-        //   return fetch("https://sikho-sobai-server.vercel.app/category");
-        // },
+        loader: async () => {
+          return fetch("https://sikho-sobai-server.vercel.app/courses");
+        },
+      },
+      {
+        path: `/courses/:id`,
+        element: <CourseDetails />,
+        loader: async ({ params }) => {
+          return fetch(
+            `https://sikho-sobai-server.vercel.app/courses/${params.id}`
+          );
+        },
+      },
+      {
+        path: "/purchase",
+        element: <Purchase />,
       },
       { path: "/faq", element: <Faq /> },
       { path: "/blog", element: <Blog /> },
+      { path: "/profile", element: <Profile /> },
+
       { path: "/signin", element: <SignIn /> },
       { path: "/signup", element: <SignUp /> },
     ],

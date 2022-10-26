@@ -117,7 +117,9 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <button onClick={handleSignOut}>Sign Out</button>
+                      <Link to="/">
+                        <button onClick={handleSignOut}>Sign Out</button>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -254,6 +256,16 @@ const Navbar = () => {
                               tabIndex={0}
                               className="btn btn-ghost btn-circle avatar"
                             >
+                              {/* <div className="w-10 rounded-full">
+                                <img
+                                  src={
+                                    user?.photoURL ? user.photoURL : userAvater
+                                  }
+                                  alt="User Profile"
+                                  title={user.displayName}
+                                />
+                              </div> */}
+
                               <div className="w-10 rounded-full">
                                 <img
                                   src={
@@ -269,15 +281,17 @@ const Navbar = () => {
                               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
                             >
                               <li>
-                                <Link to="profile" className="justify-between">
+                                <Link to="/profile" className="justify-between">
                                   Profile
                                   <span className="badge">New</span>
                                 </Link>
                               </li>
                               <li>
-                                <button onClick={handleSignOut}>
-                                  Sign Out
-                                </button>
+                                <Link to="/">
+                                  <button onClick={handleSignOut}>
+                                    Sign Out
+                                  </button>
+                                </Link>
                               </li>
                             </ul>
                           </div>
