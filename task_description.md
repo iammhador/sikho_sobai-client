@@ -94,17 +94,23 @@ You have to create a website to provide a quality learning platform in the domai
 
 1. Add a link for Password reset (use toast/ alert), (Don't worry if the email goes to the spam folder.)
 
+<!--Done -->
+
 2. Add "active route" to indicate the route which you are visiting.
 
 3. Use react-hook-form package to make forms on your website
 
 4. Explore & use these react packages in your website : react-icons, react-image-magnify, react-awesome-slider, react-loader etc.
+<!--Done -->
 
 5. Feel free to add some relevant FAQ in your FAQ route
 
 6. If you have sometime, try to implement dark/light theme toggle.
+<!--Done -->
 
 7. Optional but highly recommended: A detailed, realistic, complex & stylish footer.
+<!--Done -->
+
 8. When a user clicks on their profile image, it will redirect to the user details page. This page will show the user's detailed information (name, email & profile picture). The logged-in user can update their profile(image, displayName) by clicking on a button. (Alternatively, The profile edit form could be in a modal)
 9. Add something extra of your own. This will help you in the future to differentiate your project from others.
 10. If you want to take a challenge. Consider using `react-leaflet` anywhere in your application

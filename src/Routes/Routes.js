@@ -11,6 +11,8 @@ import Home from "../Components/Home";
 import Profile from "../Components/Profile";
 import CourseDetails from "../Components/CourseDetails";
 import Purchase from "../Components/Purchase";
+import Pdf from "../Components/Downloads";
+import CategoryMatchCourses from "../Components/CategoryMatchCourses";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +40,15 @@ export const router = createBrowserRouter([
         loader: async ({ params }) => {
           return fetch(
             `https://sikho-sobai-server.vercel.app/courses/${params.id}`
+          );
+        },
+      },
+      {
+        path: `/category/:category_id`,
+        element: <CategoryMatchCourses />,
+        loader: async ({ params }) => {
+          return fetch(
+            `https://sikho-sobai-server.vercel.app/category/${params.category_id}`
           );
         },
       },

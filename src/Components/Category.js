@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Category = ({ category }) => {
-  const { image, name, description } = category;
-
+  const { image, name, description, id } = category;
+  console.log(id);
   return (
     <div>
       <div className=" max-w-4xl rounded-md shadow-2xl dark:bg-gray-900 dark:text-gray-100 ">
@@ -18,7 +18,7 @@ const Category = ({ category }) => {
             <p className="pt-1 text-gray-300">{description.slice(0, 199)}.</p>
           </div>
           <Link
-            to="/"
+            to={`/category/${id}`}
             className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-rose-700 dark:text-gray-100 hover:bg-indigo-600"
           >
             Information

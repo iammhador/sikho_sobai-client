@@ -1,24 +1,19 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import { FaDownload, FaCartArrowDown } from "react-icons/fa";
-// import Pdf from "react-to-pdf";
 
-// const ref = React.createRef();
-const CourseDetails = () => {
-  const courseDetails = useLoaderData([]);
+const MatchCourse = ({ mCourse }) => {
   const {
+    id,
     title,
     category,
-    description,
+    short_description,
     ratting,
     student,
     starting_time,
     image,
-  } = courseDetails;
-
+  } = mCourse;
   return (
-    <div className="w-3/5 my-10 mx-auto">
-      <div className="relative block overflow-hidden rounded-lg border bg-gray-50 border-gray-800 p-8">
+    <div>
+      <div className="relative block overflow-hidden rounded-lg border bg-gray-50 border-gray-800 p-8 my-7">
         <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-rose-700 via-indigo-500 to-rose-700"></span>
 
         <div className="justify-between sm:flex">
@@ -38,10 +33,10 @@ const CourseDetails = () => {
         </div>
 
         <div className="mt-4 sm:pr-8">
-          <p className="text-sm text-gray-500">{description}</p>
+          <p className="text-sm text-gray-500">{short_description}</p>
         </div>
 
-        <dl className="mt-6 flex justify-between">
+        <dl className="mt-6 flex justify-items-stretch">
           <div className="flex flex-col-reverse">
             <dt className="text-sm font-medium text-gray-600">Published</dt>
             <dd className="text-xs text-gray-500">{starting_time}</dd>
@@ -57,30 +52,9 @@ const CourseDetails = () => {
             <dd className="text-xs text-gray-500">{ratting}</dd>
           </div>
         </dl>
-        <div className="flex mt-5">
-          <Link
-            to="/signin"
-            className="flex items-center justify-center py-2 px-4 mr-4 bg-rose-700 text-white rounded
-            hover:bg-indigo-600"
-          >
-            <FaCartArrowDown className="mr-1" /> Purchase
-          </Link>
-          <Link className="flex items-center justify-center py-2 px-4 bg-rose-700 text-white rounded hover:bg-indigo-600">
-            <FaDownload className="mr-1" /> PDF Download
-          </Link>
-          {/* <div>
-            <Pdf targetRef={ref} filename="Sikhbe-Sobai.pdf">
-              {({ toPdf }) => <button onClick={toPdf}>Download PDF</button>}
-            </Pdf>
-            <div
-              style={{ width: 500, height: 500, background: "blue" }}
-              ref={ref}
-            />
-          </div> */}
-        </div>
       </div>
     </div>
   );
 };
 
-export default CourseDetails;
+export default MatchCourse;
