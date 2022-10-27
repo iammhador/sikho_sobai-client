@@ -4,7 +4,7 @@ import { AuthContext } from "../Context.js/Context";
 import avater from "../Assets/batman.png";
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
   return (
     <div className="my-10">
       <div class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 mx-auto">

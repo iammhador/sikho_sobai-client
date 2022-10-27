@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { React, useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context.js/Context";
 import logo from "../../Assets/logo.png";
 const SignIn = () => {
@@ -15,12 +15,15 @@ const SignIn = () => {
     passwordReset,
     loader,
   } = useContext(AuthContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   //# Google Login :
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
         toast.success("You successfully logged by google");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error);
@@ -32,6 +35,7 @@ const SignIn = () => {
     githubLogin()
       .then(() => {
         toast.success("You successfully logged by github");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error);
@@ -50,6 +54,7 @@ const SignIn = () => {
         console.log(result);
         form.reset();
         toast.success("Successfully Logged");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error);

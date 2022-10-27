@@ -40,7 +40,7 @@ You have to create a website to provide a quality learning platform in the domai
 
 9. The course/content detail section will have a heading at the top of the page. The heading will have an icon/ button on the side of the heading. When you click on that button, it will create a pdf and will be downloaded ( This will give you more fun. Try out this after completing all of your tasks. Hint: Explore react-to-pdf package). Your pdf should contain some relevant information about the course details.
 
-<!--#Not Done Yet -->
+<!--Done -->
 
 10. There will be a button at the bottom of the content detail called "Get premium access." Clicking the button will take the user to the Checkout route. This route will be a private/protected route. Please ensure that the private route redirects to the login page if the user is not logged in. After login, the user will be redirected to the checkout page.
 
@@ -52,7 +52,7 @@ You have to create a website to provide a quality learning platform in the domai
 
 12. Use the Environment variable to hide the firebase key.
 
-<!--#Not Done Yet -->
+<!--Done -->
 
 13. If you reload the protected/private route (after login), this page will not redirect the user to the login page. Instead, it will keep the logged-in user on the protected route.
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Category = ({ category }) => {
   const { image, name, description, id } = category;
-  console.log(id);
+
   return (
     <div>
       <div className=" max-w-4xl rounded-md shadow-2xl dark:bg-gray-900 dark:text-gray-100 ">

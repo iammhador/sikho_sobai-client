@@ -59,7 +59,7 @@ const CourseDetails = () => {
         </dl>
         <div className="flex mt-5">
           <Link
-            to="/signin"
+            to="/purchase"
             className="flex items-center justify-center py-2 px-4 mr-4 bg-rose-700 text-white rounded
             hover:bg-indigo-600"
           >
@@ -68,15 +68,6 @@ const CourseDetails = () => {
           <Link className="flex items-center justify-center py-2 px-4 bg-rose-700 text-white rounded hover:bg-indigo-600">
             <FaDownload className="mr-1" /> PDF Download
           </Link>
-          {/* <div>
-            <Pdf targetRef={ref} filename="Sikhbe-Sobai.pdf">
-              {({ toPdf }) => <button onClick={toPdf}>Download PDF</button>}
-            </Pdf>
-            <div
-              style={{ width: 500, height: 500, background: "blue" }}
-              ref={ref}
-            />
-          </div> */}
         </div>
       </div>
     </div>

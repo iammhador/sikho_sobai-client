@@ -11,8 +11,8 @@ import Home from "../Components/Home";
 import Profile from "../Components/Profile";
 import CourseDetails from "../Components/CourseDetails";
 import Purchase from "../Components/Purchase";
-import Pdf from "../Components/Downloads";
 import CategoryMatchCourses from "../Components/CategoryMatchCourses";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +54,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/purchase",
-        element: <Purchase />,
+        element: (
+          <PrivateRoute>
+            <Purchase />
+          </PrivateRoute>
+        ),
       },
       { path: "/faq", element: <Faq /> },
       { path: "/blog", element: <Blog /> },
