@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { FaDownload, FaCartArrowDown } from "react-icons/fa";
-
+import { FaDownload, FaArrowRight } from "react-icons/fa";
 // import Pdf from "react-to-pdf";
 // const ref = React.createRef();
 const CourseDetails = () => {
   const courseDetails = useLoaderData([]);
   const {
+    id,
     title,
     category,
     description,
@@ -60,11 +60,12 @@ const CourseDetails = () => {
         </dl>
         <div className="flex mt-5">
           <Link
-            to="/purchase"
+            to={`/purchase/${id}`}
             className="flex items-center justify-center py-2 px-4 mr-4 bg-rose-700 text-white rounded
             hover:bg-indigo-600"
           >
-            <FaCartArrowDown className="mr-1" /> Purchase
+            Get premium access
+            <FaArrowRight className="ml-1" />
           </Link>
 
           {/* <Pdf targetRef={ref} filename="code-example.pdf">

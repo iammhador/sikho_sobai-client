@@ -53,12 +53,17 @@ export const router = createBrowserRouter([
         },
       },
       {
-        path: "/purchase",
+        path: "/purchase/:id",
         element: (
           <PrivateRoute>
             <Purchase />
           </PrivateRoute>
         ),
+        loader: async ({ params }) => {
+          return fetch(
+            `https://sikho-sobai-server.vercel.app/courses/${params.id}`
+          );
+        },
       },
       { path: "/faq", element: <Faq /> },
       { path: "/blog", element: <Blog /> },

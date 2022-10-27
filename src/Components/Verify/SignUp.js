@@ -12,7 +12,6 @@ const SignUp = () => {
     registerWithEmailAndPassword,
     updateDisplayNameAndPhotUrl,
     verifyEmail,
-    loader,
   } = useContext(AuthContext);
 
   //# Google Login :
@@ -21,7 +20,9 @@ const SignUp = () => {
       .then(() => {
         toast.success("You successfully logged by google");
       })
-      .catch(() => {});
+      .catch((error) => {
+        toast.error("We Find A " + error);
+      });
   };
 
   //# Github Login :
@@ -30,7 +31,9 @@ const SignUp = () => {
       .then(() => {
         toast.success("You successfully logged by github");
       })
-      .catch(() => {});
+      .catch((error) => {
+        toast.error("We Find A " + error);
+      });
   };
 
   //# Register New User With Email & Password :
@@ -59,7 +62,7 @@ const SignUp = () => {
         });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error("We Find A " + error);
       });
   };
 

@@ -44,9 +44,9 @@ You have to create a website to provide a quality learning platform in the domai
 
 10. There will be a button at the bottom of the content detail called "Get premium access." Clicking the button will take the user to the Checkout route. This route will be a private/protected route. Please ensure that the private route redirects to the login page if the user is not logged in. After login, the user will be redirected to the checkout page.
 
-<!--#Not Done Yet -->
+<!--Done -->
 
-11. Your checkout page will be a dynamic route with route parameters having the id of the content that the user had clicked. On the checkout page, you will display the name based on the id.
+11. Your checkout page will be dynamic route with route parameters having the id of the content that the user had clicked. On the checkout page, you will display the name based on the id.
 
 <!-- Done -->
 

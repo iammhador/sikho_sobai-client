@@ -28,7 +28,7 @@ const Faq = () => {
                   <span className="  lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
                     Q1.
                   </span>{" "}
-                  How do i know if a product is available in boutiques?
+                  Do we accept online payment system?
                 </p>
               </div>
               <button
@@ -59,11 +59,8 @@ const Faq = () => {
               className={"mt-6 w-full " + (open ? "block" : "hidden")}
             >
               <p className="text-base leading-6 text-gray-600 font-normal">
-                Remember you can query the status of your orders any time in My
-                orders in the My account section. if you are not resigered at
-                Mango.com, you can access dierectly in the Orders section. In
-                this cause, you will have enter your e-mail address and order
-                number.
+                Yes, We have all type of online payment system. You can easily
+                purchase out course to use bKash, Nogod, Rocket, Upay etc.
               </p>
             </div>
           </div>
@@ -83,8 +80,7 @@ const Faq = () => {
                   <span className="  lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
                     Q2.
                   </span>{" "}
-                  How can i find the prices or get other information about
-                  chanel products?
+                  Do we provide online support?
                 </p>
               </div>
               <button
@@ -115,11 +111,9 @@ const Faq = () => {
               className={"mt-6 w-full " + (open2 ? "block" : "hidden")}
             >
               <p className="text-base leading-6 text-gray-600 font-normal">
-                Remember you can query the status of your orders any time in My
-                orders in the My account section. if you are not resigered at
-                Mango.com, you can access dierectly in the Orders section. In
-                this cause, you will have enter your e-mail address and order
-                number.
+                Yes, We Provide online support. If you face any problem or error
+                doing your courses, You can join our support system and solve
+                your problem from our experience support mentors.
               </p>
             </div>
           </div>
@@ -139,7 +133,8 @@ const Faq = () => {
                   <span className="  lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
                     Q3.
                   </span>
-                  How many collections come out every year?
+                  Without education background, Can I get benefit from is
+                  courses?
                 </p>
               </div>
               <button
@@ -170,11 +165,9 @@ const Faq = () => {
               className={"mt-6 w-full " + (open3 ? "block" : "hidden")}
             >
               <p className="text-base leading-6 text-gray-600 font-normal">
-                Remember you can query the status of your orders any time in My
-                orders in the My account section. if you are not resigered at
-                Mango.com, you can access dierectly in the Orders section. In
-                this cause, you will have enter your e-mail address and order
-                number.
+                Of course. It's 21st centure. This skills give divided you from
+                others. Also the job fields. You earn money by doing
+                freelancing.
               </p>
             </div>
           </div>
@@ -194,7 +187,7 @@ const Faq = () => {
                   <span className="  lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
                     Q4.
                   </span>
-                  Are all of the fashion collections features on the website?
+                  Do you provide support after completing course?
                 </p>
               </div>
               <button
@@ -225,11 +218,10 @@ const Faq = () => {
               className={"mt-6 w-full " + (open4 ? "block" : "hidden")}
             >
               <p className="text-base leading-6 text-gray-600 font-normal">
-                Remember you can query the status of your orders any time in My
-                orders in the My account section. if you are not resigered at
-                Mango.com, you can access dierectly in the Orders section. In
-                this cause, you will have enter your e-mail address and order
-                number.
+                Yes, We try to provide that, But not perfectly. Always new
+                student join our course. So its hard to provide everyone same
+                support. But we try our level best to provide supports to
+                everyone.
               </p>
             </div>
           </div>
@@ -249,8 +241,7 @@ const Faq = () => {
                   <span className="  lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
                     Q5.
                   </span>
-                  Where do i find products that i have seen in magazines or
-                  Social Media?
+                  What we need to start?
                 </p>
               </div>
               <button
@@ -281,11 +272,10 @@ const Faq = () => {
               className={"mt-6 w-full " + (open5 ? "block" : "hidden")}
             >
               <p className="text-base leading-6 text-gray-600 font-normal">
-                Remember you can query the status of your orders any time in My
-                orders in the My account section. if you are not resigered at
-                Mango.com, you can access dierectly in the Orders section. In
-                this cause, you will have enter your e-mail address and order
-                number.
+                Don't need large amount o computer knowledge. You have to set
+                your mentality. Have to work hard. Determine on courses. Try to
+                follow the guideline. Have to know basic computer skills. Thats
+                it.
               </p>
             </div>
           </div>

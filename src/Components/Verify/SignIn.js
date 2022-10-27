@@ -6,7 +6,6 @@ import { AuthContext } from "../../Context.js/Context";
 import logo from "../../Assets/logo.png";
 const SignIn = () => {
   const [showpass, setShowPass] = useState(false);
-  const [error, setError] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const {
     googleLogin,
@@ -26,7 +25,7 @@ const SignIn = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        setError(error);
+        toast.error("We Find A " + error);
       });
   };
 
@@ -38,13 +37,15 @@ const SignIn = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        setError(error);
+        toast.error("We Find A " + error);
       });
   };
 
   //# Login Existing User With Email & Password :
   const handleLogin = (e) => {
     e.preventDefault();
+    e.preventDefault();
+
     const form = e.target;
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -57,15 +58,14 @@ const SignIn = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        setError(error);
-        console.log(error);
-        toast.error("Error" + error);
+        toast.error("We Find A " + error);
+
+        // navigate("/");
       });
   };
 
   //# Send Password Reset Email :
-  const handleForgetPass = (e) => {
-    e.preventDefault();
+  const handleForgetPass = () => {
     console.log(userEmail);
     passwordReset(userEmail)
       .then(() => {
@@ -174,25 +174,21 @@ const SignIn = () => {
                 </lable>
                 <input
                   onBlur={(e) => setUserEmail(e.target.value)}
-                  aria-label="enter email adress"
-                  role="input"
                   type="email"
                   name="email"
+                  placeholder="Your Email"
                   required
                   className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 />
               </div>
               <div className="mt-6 w-full">
-                <label
-                  htmlFor="myInput"
-                  className="text-sm font-medium leading-none text-gray-800"
-                >
+                <label className="text-sm font-medium leading-none text-gray-800">
                   {" "}
                   Password{" "}
                 </label>
                 <div className="relative flex items-center justify-center">
                   <input
-                    id="myInput"
+                    id="password"
                     name="password"
                     type={showpass ? "text" : "password"}
                     required
@@ -239,9 +235,7 @@ const SignIn = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <div>
-                  <p>{error}</p>
-                </div>
+                <div></div>
                 <div>
                   <button onClick={handleForgetPass}>
                     <small>Forget password</small>

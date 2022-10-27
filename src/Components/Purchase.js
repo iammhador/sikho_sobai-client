@@ -1,14 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useLocation } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const Purchase = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const { state } = useLocation;
-  console.log(state);
+  const { title } = useLoaderData();
 
   const handlePurchase = () => {
     if (email && password) {
@@ -49,13 +47,16 @@ const Purchase = () => {
 				"
         >
           <div className="flex w-full flex-col justify-start items-start">
+            <h2 className="text-4xl text-rose-700 font-bold mb-10 mx-auto underline">
+              {title}
+            </h2>
             <div className="">
-              <p className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
+              <p className="text-2xl lg:text-2xl font-semibold leading-7 lg:leading-9 text-gray-800">
                 Check out
               </p>
             </div>
 
-            <div className="mt-12 flex flex-col justify-start items-start w-full space-y-8">
+            <div className="mt-5 flex flex-col justify-start items-start w-full space-y-8">
               <input
                 onBlur={(e) => setEmail(e.target.value)}
                 className="
