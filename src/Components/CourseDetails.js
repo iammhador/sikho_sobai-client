@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaDownload, FaCartArrowDown } from "react-icons/fa";
-// import Pdf from "react-to-pdf";
 
+// import Pdf from "react-to-pdf";
 // const ref = React.createRef();
 const CourseDetails = () => {
   const courseDetails = useLoaderData([]);
@@ -16,6 +16,7 @@ const CourseDetails = () => {
     image,
   } = courseDetails;
 
+  console.log(title);
   return (
     <div className="w-3/5 my-10 mx-auto">
       <div className="relative block overflow-hidden rounded-lg border bg-gray-50 border-gray-800 p-8">
@@ -65,9 +66,27 @@ const CourseDetails = () => {
           >
             <FaCartArrowDown className="mr-1" /> Purchase
           </Link>
-          <Link className="flex items-center justify-center py-2 px-4 bg-rose-700 text-white rounded hover:bg-indigo-600">
-            <FaDownload className="mr-1" /> PDF Download
-          </Link>
+
+          {/* <Pdf targetRef={ref} filename="code-example.pdf">
+            {({ toPdf }) => (
+              <button
+                onClick={toPdf}
+                className="flex items-center justify-center py-2 px-4 bg-rose-700 text-white rounded hover:bg-indigo-600"
+              >
+                <FaDownload className="mr-1" /> PDF Download
+              </button>
+            )}
+          </Pdf> */}
+
+          {/* <div className="App">
+            <Pdf targetRef={ref} filename="SikhoSobai.pdf">
+              {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+            </Pdf>
+            <div ref={ref} className="hidden">
+              {PdfFile}
+            </div>
+          </div> */}
+          {/* <Pdf /> */}
         </div>
       </div>
     </div>

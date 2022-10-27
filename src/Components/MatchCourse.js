@@ -11,6 +11,7 @@ const MatchCourse = ({ mCourse }) => {
     starting_time,
     image,
   } = mCourse;
+  console.log(title);
   return (
     <div>
       <div className="relative block overflow-hidden rounded-lg border bg-gray-50 border-gray-800 p-8 my-7">

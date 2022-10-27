@@ -12,6 +12,7 @@ const Rightside = ({ course }) => {
     starting_time,
     image,
   } = course;
+
   return (
     <div>
       <div className="relative block overflow-hidden rounded-lg border bg-gray-50 border-gray-800 p-8">
@@ -54,7 +55,7 @@ const Rightside = ({ course }) => {
           </div>
 
           <div className="ml-3 flex flex-col-reverse  sm:ml-6">
-            <Link to={`/courses/${id}`}>
+            <Link to={`/courses/${id}`} state={{ title }}>
               <button className="py-2 px-3 bg-rose-700 text-gray-50 rounded-md hover:bg-indigo-600">
                 Details
               </button>

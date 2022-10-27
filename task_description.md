@@ -58,6 +58,8 @@ You have to create a website to provide a quality learning platform in the domai
 
 ### Bonus:
 
+<!--Done -->
+
 1. Minimum 12 meaningful git commits on the client-side repository and minimum of 5 meaningful commits on the server-side repository.
 
 1. Make your website mobile & desktop responsive (tablet responsive is optional).
@@ -83,6 +85,7 @@ You have to create a website to provide a quality learning platform in the domai
 <!--Done -->
 
 1. Create a 404 page.
+<!--Done -->
 
 1. Make sure your site looks reasonable. The design and color selection is meaningful.
 
