@@ -11,7 +11,7 @@ const Courses = () => {
       <h2 className="text-3xl font-bold uppercase text-rose-700 text-center pb-10">
         Available All Courses
       </h2>
-      <div className="flex ">
+      <div className="md:flex md:flex-row sm:flex sm:flex-col">
         <div class="lg:grid-cols-2 lg:block">
           <Leftside />
         </div>

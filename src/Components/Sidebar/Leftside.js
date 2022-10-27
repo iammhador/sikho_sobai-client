@@ -18,11 +18,11 @@ const Leftside = () => {
   }, []);
 
   return (
-    <div className="hidden md:block">
+    <div className="">
       <h3 className="text-center text-rose-700 uppercase text-sm font-semibold underline mb-3">
         All Categories
       </h3>
-      <div>
+      <div className=" text-center">
         {category.map((singleCategory) => (
           <LeftSideCategory
             key={singleCategory.id}
@@ -30,7 +30,7 @@ const Leftside = () => {
           />
         ))}
       </div>
-      <div>
+      <div className="">
         <h3 className="text-center text-rose-700 uppercase text-sm font-semibold underline mt-8 mb-3">
           Share
         </h3>
