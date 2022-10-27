@@ -8,7 +8,6 @@ import {
   FaMedium,
   FaTwitter,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Leftside = () => {
   const [category, setCategory] = useState([]);
@@ -19,7 +18,7 @@ const Leftside = () => {
   }, []);
 
   return (
-    <div>
+    <div className="hidden md:block">
       <h3 className="text-center text-rose-700 uppercase text-sm font-semibold underline mb-3">
         All Categories
       </h3>

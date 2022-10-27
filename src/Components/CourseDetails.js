@@ -17,7 +17,6 @@ const CourseDetails = () => {
     image,
   } = courseDetails;
 
-  console.log(title);
   return (
     <div className="w-3/5 my-10 mx-auto">
       <div
@@ -65,7 +64,7 @@ const CourseDetails = () => {
         <div className="flex mt-5">
           <Link
             to={`/purchase/${id}`}
-            className="flex items-center justify-center py-2 px-4 mr-4 bg-rose-700 text-white rounded
+            className="flex items-center justify-center lg:py-2 lg:px-4 sm:py-0 sm:px-4 lg:mr-4 sm:mr-1 lg:text-base sm:text-xs bg-rose-700 text-white rounded
             hover:bg-indigo-600"
           >
             Get premium access

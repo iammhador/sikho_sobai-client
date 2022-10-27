@@ -1,10 +1,3 @@
-2. Check Responsiveness
-
-Optional:
-
-1. React-leaflet, React-Loader
-2. Edit Image And Display Name
-
 Website Name : Sikho Sobai
 
 GitHub Client Site Link :

@@ -21,10 +21,10 @@ const Banner = () => {
           </div>
           <div className="flex items-center">
             <Link
-              to="/courses"
+              to="/signup"
               className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-100 transition duration-200 rounded shadow-md bg-rose-700 hover:bg-indigo-600 focus:shadow-outline focus:outline-none"
             >
-              All Courses
+              Sign Up
             </Link>
           </div>
         </div>
