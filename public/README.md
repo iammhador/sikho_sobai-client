@@ -1,4 +1,3 @@
-1. PDF Download.
 2. Check Responsiveness
 
 Optional:
